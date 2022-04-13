@@ -3,7 +3,7 @@ import {Container} from "react-bootstrap";
 import {Button, Form, ListGroup, Modal, ModalHeader, ModalTitle,} from "react-bootstrap";
 import axios from "axios";
 
-const SignUp = () => {
+const SignUp = (props) => {
     const type = 'student'
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
@@ -41,115 +41,129 @@ const SignUp = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (password && password === secondPassword){
+        console.log("inside handle submit")
+        if (password && password === secondPassword) {
             axios.post('http://127.0.0.1:8000/api/register',
                 {
                     email: email,
                     password: password,
-                    first_name : firstName,
+                    first_name: firstName,
                     last_name: lastName,
                     birth_date: birthDate,
                     phone_number: phoneNumber,
                     address: address,
                     type: type
                 }
-
             )
-                .then(response => {
-                    if(response.status === 405){
-                        alert("This email is already taken");
-                        console.log("This email is already taken");
-                    }
-                    console.log(response)
+                .then(() => {
+                    axios.post('http://127.0.0.1:8000/api/token/',
+                        {
+                            username: email,
+                            password: password,
+                        }
+                    )
+                        .then(response => {
+                            window.localStorage.setItem("token", response.data.token)
+                            props.logged();
+                            window.location.href = '/'
+                        })
+                        .catch((error) => {
+                            console.log(error)
+                            alert("Details Incorrect")
+                        })
+
                 })
-                .catch(error =>{
-                    if (error.response.status === 405){
+                .catch(error => {
+                    if (error.response.status === 405) {
                         alert("This Email is already taken")
                     }
                 })
-        }
-        else{
+        } else {
             alert("Passwords aren't matching")
         }
     }
 
 
     return (
-        <Form>
-            <Form.Group>
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={emailChangeHandler}
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>First Name</Form.Label>
-                <Form.Control
-                    type="text"
-                    placeholder="First Name"
-                    value={firstName}
-                    onChange={firstNameChangeHandler}
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Last Name </Form.Label>
-                <Form.Control
-                    type="text"
-                    placeholder="Last Name"
-                    value={lastName}
-                    onChange={lastNameChangeHandler}
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Birth Date</Form.Label>
-                <Form.Control
-                    type="date"
-                    // placeholder="Email"
-                    value={birthDate}
-                    onChange={birthDateChangeHandler}
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Address</Form.Label>
-                <Form.Control
-                    type="text"
-                    placeholder="Address"
-                    value={address}
-                    onChange={addressChangeHandler}
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Phone Number</Form.Label>
-                <Form.Control
-                    type="number"
-                    placeholder="Phone Number"
-                    value={phoneNumber}
-                    onChange={phoneNumberChangeHandler}
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={passwordChangeHandler}
-                />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Re-Enter Password</Form.Label>
-                <Form.Control
-                    type="password"
-                    placeholder="Re-Enter Password"
-                    value={secondPassword}
-                    onChange={secondPasswordChangeHandler}
-                />
-            </Form.Group>
-            <Button variant="primary" type="submit" onClick={handleSubmit} >Sign Up</Button>
-        </Form>
+        <Container>
+
+
+            <Form>
+                <Form.Group>
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={emailChangeHandler}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>First Name</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="First Name"
+                        value={firstName}
+                        onChange={firstNameChangeHandler}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Last Name </Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Last Name"
+                        value={lastName}
+                        onChange={lastNameChangeHandler}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Birth Date</Form.Label>
+                    <Form.Control
+                        type="date"
+                        // placeholder="Email"
+                        value={birthDate}
+                        onChange={birthDateChangeHandler}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Address</Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Address"
+                        value={address}
+                        onChange={addressChangeHandler}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Phone Number</Form.Label>
+                    <Form.Control
+                        type="number"
+                        placeholder="Phone Number"
+                        value={phoneNumber}
+                        onChange={phoneNumberChangeHandler}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={passwordChangeHandler}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Re-Enter Password</Form.Label>
+                    <Form.Control
+                        type="password"
+                        placeholder="Re-Enter Password"
+                        value={secondPassword}
+                        onChange={secondPasswordChangeHandler}
+                    />
+                </Form.Group>
+                <Button variant="primary" type="submit" onClick={handleSubmit}>Sign Up</Button>
+            </Form>
+        </Container>
     )
 }
 

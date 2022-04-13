@@ -26,15 +26,12 @@ const Login = (props) => {
         )
             .then(response => {
                 window.localStorage.setItem("token", response.data.token)
-                console.log(response)
+                // console.log(response)
                 props.loginClicked()
                 setEmail('')
                 setPassword('')
-                Window.location.href='/'
                 props.logged();
-                window.location.reload();
-
-
+                Window.location.href='/'
             })
             .catch(error => {
                 console.log(error.response.status)

@@ -26,15 +26,16 @@ const Navigation = (props) => {
                     console.log("error")
                 })
         }
-    }, [])
+    }, [firstName,lastName,token])
 
     const toggleModal = () => {
         props.loginClicked()
     }
 
     const signOutToggle = () => {
-        window.localStorage.clear()
+        window.localStorage.removeItem('token')
         props.logged();
+        window.location.href = '/'
     }
 
 
@@ -57,7 +58,7 @@ const Navigation = (props) => {
                     {/*<Navbar.Text>*/}
                     <span>
                     {token ? (
-                        <span style={{display: "flex"}}><Nav.Link href='/'>Hello {firstName} {lastName}</Nav.Link><Nav.Link onClick={signOutToggle}> Sign Out</Nav.Link></span>) : (<div style={{display: 'flex'}}>
+                        <span style={{display: "flex"}}><Nav.Link href='/user_profile'>Hello {firstName} {lastName}</Nav.Link><Nav.Link onClick={signOutToggle}> Sign Out</Nav.Link></span>) : (<div style={{display: 'flex'}}>
                         <Nav.Link href='/sign_up'>Sign Up </Nav.Link>
                         <Nav.Link onClick={toggleModal}> Sign In</Nav.Link>
                     </div>)}
