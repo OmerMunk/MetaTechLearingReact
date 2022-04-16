@@ -36,10 +36,11 @@ const Tests = () => {
 
 
     return (
-        <>
+        <div className='testBody'>
             <header>
                 <h1>
                     <strong>Test Yourself</strong>
+                    <hr/>
                 </h1>
             </header>
             {tests === [] && <h1>Ben</h1>}
@@ -49,7 +50,7 @@ const Tests = () => {
 
             {singleTest !== {} && <SingleTest close={closeModal} show={showTestModal} singleTest={singleTest} />}
 
-        </>
+        </div>
     )
 }
 

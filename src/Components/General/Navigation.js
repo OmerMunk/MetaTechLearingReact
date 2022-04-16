@@ -43,16 +43,16 @@ const Navigation = (props) => {
         <Navbar>
             <Container>
                 <Navbar.Brand href='/'>
-                    click1
+                    MetaTech
                 </Navbar.Brand>
-                <Nav.Link>
-                    click2
+                <Nav.Link href='/tests'>
+                    Test Yourself
                 </Nav.Link>
                 <Nav.Link>
-                    click3
+                    Our Services
                 </Nav.Link>
                 <Nav.Link>
-                    click4
+                    Contact us
                 </Nav.Link>
                 <Navbar.Collapse className="justify-content-end">
                     {/*<Navbar.Text>*/}
