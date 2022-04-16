@@ -1,0 +1,12 @@
+.black_border{
+    border: solid black 1px;
+    margin: 2%;
+    position: relative;
+}
+
+.black_border:hover{
+    cursor: pointer;
+    border: solid black 3px;
+    transition-duration: 0.3s;
+
+}
