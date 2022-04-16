@@ -10,6 +10,8 @@ import SignUp from "./Components/Users/SignUp";
 import Login from "./Components/Users/Login";
 import UserProfile from "./Components/Users/UserProfile";
 import LessonHistory from "./Components/Lessons/LessonsHistory/LessonHistory";
+import Tests from "./Components/Tests/Tests";
+import SingleTest from "./Components/Tests/SingleTest";
 
 
 function App() {
@@ -32,10 +34,12 @@ function App() {
         <Container>
             <Navigation  loginClicked={showModal} logged={toggleLogged}/>
             <Routes>
-                <Route  path="/" element={<HomePage/>}/>
-                <Route   path="/sign_up" element={<SignUp logged={toggleLogged} />}/>
+                <Route path="/" element={<HomePage/>}/>
+                <Route path="/sign_up" element={<SignUp logged={toggleLogged} />}/>
                 <Route path="/user_profile" element={<UserProfile/>}/>
                 <Route path='/lessons_history' element={<LessonHistory/>} />
+                <Route path='/tests' element={<Tests />} />
+
 
             </Routes>
             <Login showLogin={showLoginModal} loginClicked={showModal} logged={toggleLogged}/>
