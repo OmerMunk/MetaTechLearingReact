@@ -11,10 +11,11 @@ const SingleTest = (props) => {
     let answers = [];
 
     const handleSubmit = (event) => {
+        const token = window.localStorage.getItem('token')
         event.preventDefault()
         let finalAns = {}
         answers.map(value => finalAns[value[0]] = value[1])
-        axios.post('http://127.0.0.1:8000/api/test/'+props.singleTest.id,finalAns)
+        axios.post('http://127.0.0.1:8000/api/test/'+props.singleTest.id,finalAns,{headers: {Authorization: 'Token ' + token}})
             .then(response => {
                 setResult(response.data)
                 setShowResult(true)
@@ -29,7 +30,23 @@ const SingleTest = (props) => {
         answers.push(newElem)
 
     }
+    function shuffle(array) {
+        let currentIndex = array.length, randomIndex;
 
+        // While there remain elements to shuffle.
+        while (currentIndex !== 0) {
+
+            // Pick a remaining element.
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+        }
+
+        return array;
+    }
 
         return (<>
                 {!singleTest.questions && <h1></h1>}
@@ -41,24 +58,26 @@ const SingleTest = (props) => {
                             </Modal.Header>
                             <Modal.Body>
                                 {singleTest.questions.map((value, index) => {
+                                    let ansList = [value.option1,value.option2,value.option3,value.option4]
+                                    ansList = shuffle(ansList)
                                     return <Form.Group key={value.id}>
                                         <Form.Label id={index + 1}>
                                             <h3>{value.question}</h3>
                                         </Form.Label>
-                                        <Form.Check name={'answer' + value.id} value={value.option1} type={"radio"}
-                                                    label={value.option1}
+                                        <Form.Check name={'answer' + value.id} value={ansList[0]} type={"radio"}
+                                                    label={ansList[0]}
                                                     onChange={(event) => onValueChange(value.id, event)}/>
 
-                                        <Form.Check name={'answer' + value.id} value={value.option2} type={"radio"}
-                                                    label={value.option2}
+                                        <Form.Check name={'answer' + value.id} value={ansList[1]} type={"radio"}
+                                                    label={ansList[1]}
                                                     onChange={(event) => onValueChange(value.id, event)}/>
 
-                                        <Form.Check name={'answer' + value.id} value={value.option3} type={"radio"}
-                                                    label={value.option3}
+                                        <Form.Check name={'answer' + value.id} value={ansList[2]} type={"radio"}
+                                                    label={ansList[2]}
                                                     onChange={(event) => onValueChange(value.id, event)}/>
 
-                                        <Form.Check name={'answer' + value.id} value={value.option4} type={"radio"}
-                                                    label={value.option4}
+                                        <Form.Check name={'answer' + value.id} value={ansList[3]} type={"radio"}
+                                                    label={ansList[3]}
                                                     onChange={(event) => onValueChange(value.id, event)}/>
 
                                     </Form.Group>

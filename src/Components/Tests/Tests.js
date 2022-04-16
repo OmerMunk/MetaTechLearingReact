@@ -39,7 +39,7 @@ const Tests = () => {
         <>
             <header>
                 <h1>
-                    Our Tests
+                    <strong>Test Yourself</strong>
                 </h1>
             </header>
             {tests === [] && <h1>Ben</h1>}
