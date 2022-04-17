@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Button, Container} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import axios from "axios";
+import SingleLesson from "../SingleLesson";
 
 
 
@@ -26,9 +27,12 @@ const LessonHistory = () => {
     const renderLesson = (lesson) => {
         return(
             <Container>
-                <h1>{lesson.lesson_date}</h1>
-                <p>Subject: {lesson.subject.subject_name} </p>
-                <p>Student:  {lesson.student_full_name} </p>
+                <SingleLesson
+                    date={lesson.lesson_date}
+                    subject={lesson.subject.subject_name}
+                    student={lesson.student_full_name}
+                    recordingUrl = {lesson.record_url}
+                />
             </Container>
         )
 
