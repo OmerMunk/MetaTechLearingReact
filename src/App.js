@@ -12,6 +12,7 @@ import UserProfile from "./Components/Users/UserProfile";
 import LessonHistory from "./Components/Lessons/LessonsHistory/LessonHistory";
 import Tests from "./Components/Tests/Tests";
 import SingleTest from "./Components/Tests/SingleTest";
+import SignUp2 from "./Components/Users/SignUp2";
 
 
 function App() {
