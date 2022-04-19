@@ -48,6 +48,9 @@ const Navigation = (props) => {
                 <Nav.Link href='/tests'>
                     Test Yourself
                 </Nav.Link>
+                <Nav.Link href='/users_list'>
+                    Search User
+                </Nav.Link>
                 <Nav.Link>
                     Our Services
                 </Nav.Link>
