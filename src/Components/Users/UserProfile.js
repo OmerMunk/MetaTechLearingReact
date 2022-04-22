@@ -6,13 +6,13 @@ import {Link} from "react-router-dom";
 import EditDetailsFormModal from "./EditDetailsFormModal";
 import UserTest from "../Tests/UserTest";
 
-const UserProfile = (props) => {
+const UserProfile = () => {
 
     const [userProfile, setUserProfile] = useState('')
     const [credits, setCredits] = useState(0)
     // const [teachers, setTeachers] = useState()
     // const [students, setStudents] = useState()
-    const [token, setToken] = useState('')
+    const [token, setToken] = useState()
     const [showAddModal, setShowAddModal] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
 
@@ -25,7 +25,6 @@ const UserProfile = (props) => {
                 setUserProfile(response.data.profile)
                 setCredits(response.data.credits)
             })
-        console.log(userProfile)
     }
 
 
@@ -70,7 +69,8 @@ const UserProfile = (props) => {
                         <Button onClick={ShowAddLessonModalHandler}>Add Lesson</Button>
                         <AddLesson showAdd={showAddModal} token={token} addClicked={ShowAddLessonModalHandler}  />
                     </div>}
-                    <UserTest />
+                    {userProfile.type.type === 'student' && <UserTest /> }
+
                 </Container>}
 
         </div>

@@ -8,11 +8,16 @@ import FilterModal from "./FilterModal";
 
 const LessonHistory = () => {
 
-
+    const [token, setToken] = useState(window.localStorage.getItem('token'))
     const [lessons, setLessons] = useState([])
     const [filterType, setFilterType] = useState(null)
     const [filterDetails, setFilterDetails] = useState(null)
     const [showFilterModal, setShowFilterModal] = useState(false)
+    const [userProfile, setUserProfile] = useState('')
+
+    useEffect(() =>{
+        getProfile()
+    },[])
 
     const filterModalHandler = () => {
         setShowFilterModal(!showFilterModal)
@@ -22,10 +27,20 @@ const LessonHistory = () => {
         setFilterType(null)
     }
 
-    const token = window.localStorage.getItem('token')
+
+
+
+    const getProfile = () => {
+        const token = window.localStorage.getItem('token')
+        setToken(token)
+        axios.get('http://127.0.0.1:8000/api/user/profile', {headers: {Authorization: 'Token ' + token}})
+            .then(response => {
+                setUserProfile(response.data.profile)
+            })
+    }
+
 
     const getLessons = () => {
-        console.log("getlessons")
         axios.get('http://127.0.0.1:8000/api/lessons', {headers: {Authorization: 'Token ' + token}})
             .then(response => {
                 setLessons(response.data)
@@ -42,10 +57,7 @@ const LessonHistory = () => {
                     })
                     setLessons(filteredLessons)
                 }
-
-
             })
-
     }
 
     const renderLesson = (lesson) => {
@@ -58,6 +70,10 @@ const LessonHistory = () => {
                     subject={lesson.subject.subject_name}
                     student={lesson.student_full_name}
                     recordingUrl={lesson.record_url}
+                    materialUrl={lesson.lesson_material}
+                    length={lesson.length}
+                    userType={userProfile.type.type}
+                    approved = {lesson.approved}
                 />
             </Container>
         )
@@ -68,6 +84,7 @@ const LessonHistory = () => {
 
     useEffect(() => {
         getLessons();
+        getProfile();
     }, [filterType])
 
     return (

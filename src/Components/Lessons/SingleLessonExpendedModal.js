@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import {Button, Modal} from "react-bootstrap";
-import PropTypes from "prop-types";
+
 
 const SingleLessonExpendedModal = (props) =>{
 
@@ -14,12 +14,13 @@ const SingleLessonExpendedModal = (props) =>{
                 <h4>Date:  </h4>{props.date}<br/>
                 <h4>Student: </h4> {props.student}<br/>
                 <h4>Subject:  </h4>{props.subject}<br/>
+                <h4>length: </h4>{props.length}<br/>
                 <h4>Recording:</h4>
                 <div>
                     <iframe
                         width="50%"
                         height="50%"
-                        src={`https://www.youtube.com/embed/${props.embedId}`}
+                        src={`https://www.youtube.com/embed/${props.recordingUrl}`}
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
@@ -28,7 +29,7 @@ const SingleLessonExpendedModal = (props) =>{
                 </div>
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={props.switch}>Edit</Button>
+                {props.userType === 'teacher' && !props.approved && <Button onClick={props.switch}>Edit</Button> }
                 <Button onClick={props.toggle} variant='danger'>Close</Button>
 
             </Modal.Footer>

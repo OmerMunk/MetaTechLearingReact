@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {Form, Button, Modal} from "react-bootstrap";
 import axios from "axios";
-import {Redirect} from "react-router";
 
 const Login = (props) => {
     const [email, setEmail] = useState();
@@ -25,7 +24,8 @@ const Login = (props) => {
             }
         )
             .then(response => {
-                window.localStorage.setItem("token", response.data.token)
+                // window.localStorage.setItem("token", response.data.token)
+                props.tokenHandler(response.data.token)
                 // console.log(response)
                 props.loginClicked()
                 setEmail('')
