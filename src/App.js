@@ -31,7 +31,7 @@ function App() {
 
 
     return (
-        <Container>
+        <Container >
             <Navigation  loginClicked={showModal} logged={toggleLogged}/>
             <Routes>
                 <Route path="/" element={<HomePage/>}/>

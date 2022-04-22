@@ -28,6 +28,7 @@ const SingleLessonExpendedModal = (props) =>{
                 </div>
             </Modal.Body>
             <Modal.Footer>
+                <Button onClick={props.switch}>Edit</Button>
                 <Button onClick={props.toggle} variant='danger'>Close</Button>
 
             </Modal.Footer>
