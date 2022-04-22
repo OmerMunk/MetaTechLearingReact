@@ -1,2 +1,12 @@
+@import "./base";
+@import "./variables";
 @import "./utils";
-@import './base'
+@import "./componentsStyling/navbar";
+@import "./componentsStyling/searchPage";
+@import "./componentsStyling/tests";
+@import "./componentsStyling/homePage";
+@import "./componentsStyling/userProfile";
+
+body {
+  background-image: url("../../../public/new_background_meta_tech2\ -\ Copy2.png");
+}

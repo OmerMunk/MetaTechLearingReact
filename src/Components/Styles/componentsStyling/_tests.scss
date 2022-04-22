@@ -1,0 +1,14 @@
+.test {
+  h1 {
+    font-weight: bold;
+  }
+  .card {
+    color: #333;
+    width: 400px;
+    margin: 10px auto;
+    cursor: pointer;
+  }
+  .card:hover {
+    background-color: rgb(238, 238, 238);
+  }
+}

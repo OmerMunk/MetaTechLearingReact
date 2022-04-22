@@ -1,15 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #333;
+  line-height: 1.6;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+h1,
+h2 {
+  font-weight: 300;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+
+p {
+  margin: 10px 0;
+}
+
+img {
+  width: 100%;
+}
+
+.customLink {
+  color: #2384fa;
+  cursor: pointer;
+}
+
+p {
+  color: rgba(86, 182, 255, 0.687);
+}
+
 .container {
-  max-width: 1100px;
+  max-width: 1440px;
   margin: 0 auto;
   overflow: auto;
-  padding: 0 40px;
+  padding: 0 0px;
 }
 
 .card {
   background-color: #fff;
   border-radius: 10px;
   -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   padding: 20px;
   margin: 10px;
   color: #333;
@@ -32,7 +79,7 @@
 
 .btn:hover {
   -webkit-transform: scale(0.98);
-  transform: scale(0.98);
+          transform: scale(0.98);
 }
 
 .lead {
@@ -63,33 +110,32 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
 }
 
 .grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr) [2];
-  grid-template-columns: repeat(2, 1fr);
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
 }
 
 .grid-3 {
-  -ms-grid-columns: (1fr) [3];
-  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
 }
 
 /* Margin */
@@ -172,5 +218,94 @@
 
 .p-5 {
   padding: 4rem;
+}
+
+.navBar a {
+  color: #333;
+  cursor: pointer;
+  border-bottom: 1px solid transparent;
+}
+
+.navBar img {
+  width: 100px;
+}
+
+.navBar .signArea {
+  padding: 5px;
+}
+
+.navBar .links {
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.navBar .links:hover {
+  border-bottom: 1px solid #fff;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+
+.navBar .Logo {
+  width: 40px;
+  border-bottom: none;
+}
+
+.search h3 {
+  font-weight: bold;
+}
+
+.search input {
+  outline: none;
+  width: 350px;
+  height: 40px;
+  margin-bottom: 30px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: aliceblue;
+}
+
+.search .card {
+  margin: auto;
+  width: 600px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.search .card:hover {
+  background-color: rgba(215, 215, 215, 0.911);
+}
+
+.search .searchBtn {
+  background-color: transparent;
+  color: #fff;
+  font-size: 1.2rem;
+  border: none;
+}
+
+.test h1 {
+  font-weight: bold;
+}
+
+.test .card {
+  color: #333;
+  width: 400px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.test .card:hover {
+  background-color: #eeeeee;
+}
+
+.homePage h1 {
+  text-align: center;
+}
+
+body {
+  background-image: url("../../../public/new_background_meta_tech2 - Copy2.png");
 }
 /*# sourceMappingURL=style.css.map */
