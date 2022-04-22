@@ -4,8 +4,9 @@ import axios from "axios";
 import AddLesson from "./addLesson";
 import {Link} from "react-router-dom";
 import EditDetailsFormModal from "./EditDetailsFormModal";
+import UserTest from "../Tests/UserTest";
 
-const UserProfile = () => {
+const UserProfile = (props) => {
 
     const [userProfile, setUserProfile] = useState('')
     const [credits, setCredits] = useState(0)
@@ -69,6 +70,7 @@ const UserProfile = () => {
                         <Button onClick={ShowAddLessonModalHandler}>Add Lesson</Button>
                         <AddLesson showAdd={showAddModal} token={token} addClicked={ShowAddLessonModalHandler}  />
                     </div>}
+                    <UserTest />
                 </Container>}
 
         </div>

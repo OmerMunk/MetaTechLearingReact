@@ -12,6 +12,8 @@ import UserProfile from "./Components/Users/UserProfile";
 import LessonHistory from "./Components/Lessons/LessonsHistory/LessonHistory";
 import Tests from "./Components/Tests/Tests";
 import SingleTest from "./Components/Tests/SingleTest";
+import SignUp2 from "./Components/Users/SignUp2";
+import UsersList from "./Components/Users/UsersList";
 
 
 function App() {
@@ -36,9 +38,11 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage/>}/>
                 <Route path="/sign_up" element={<SignUp logged={toggleLogged} />}/>
-                <Route path="/user_profile" element={<UserProfile/>}/>
+                <Route path="/user_profile/*" element={<UserProfile/>}/>
+                <Route path="/users_list" element={<UsersList />}/>
                 <Route path='/lessons_history' element={<LessonHistory/>} />
                 <Route path='/tests' element={<Tests />} />
+
 
 
             </Routes>
