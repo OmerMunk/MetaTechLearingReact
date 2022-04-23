@@ -4,7 +4,7 @@ import "./SingleLesson.css";
 import SingleLessonExpendedModal from "./SingleLessonExpendedModal";
 import SingleLessonEditModal from "./SingleLessonEditModal";
 import axios from "axios";
-import { useNavigate } from "react-router";
+
 
 const SingleLesson = (props) => {
   // const navigate = useNavigate();
@@ -20,7 +20,7 @@ const SingleLesson = (props) => {
         { headers: { Authorization: "Token " + props.token } }
       )
       .then((response) => {
-        // console.log(response);
+        console.log(response);
         // props.toggle();
         props.renderList((prev) => !prev);
 
@@ -74,7 +74,6 @@ const SingleLesson = (props) => {
               <button
                 style={{ cursor: "not-allowed" }}
                 className="benBtn benOrangeBtn"
-                onClick={approveLessonHandler}
               >
                 Pending Approval
               </button>
@@ -102,7 +101,6 @@ const SingleLesson = (props) => {
         approved={props.approved}
       />
       <SingleLessonEditModal
-        token={props.token}
         id={props.id}
         date={props.date}
         student={props.student}

@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
+import {Form, Modal } from "react-bootstrap";
 import axios from "axios";
 
 const EditDetailsFormModal = (props) => {
   const token = props.token;
-  const [address, setAddress] = useState("");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [birthDate, setBirthDate] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [address, setAddress] = useState(props.address);
+  const [phoneNumber, setPhoneNumber] = useState(props.phoneNumber);
+  const [birthDate, setBirthDate] = useState(props.birthDate);
+  const [firstName, setFirstName] = useState(props.firstName);
+  const [lastName, setLastName] = useState(props.lastName);
 
   const addressChangeHandler = (event) => {
     setAddress(event.target.value);
@@ -26,14 +26,6 @@ const EditDetailsFormModal = (props) => {
     setLastName(event.target.value);
   };
 
-  // const toggleModal = () => {
-  //     props.loginClicked()
-  //     setAddress('')
-  //     setPhoneNumber('')
-  //     setBirthDate('')
-  //     setFirstName('')
-  //     setLastName('')
-  // }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,6 +42,7 @@ const EditDetailsFormModal = (props) => {
         { headers: { Authorization: "Token " + token } }
       )
       .then((response) => {
+        console.log(response)
         props.toggle();
       });
   };
