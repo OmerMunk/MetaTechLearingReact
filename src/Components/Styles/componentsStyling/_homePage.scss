@@ -2,4 +2,68 @@
   h1 {
     text-align: center;
   }
+
+  .homeFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .cardItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    width: 200px;
+    transition-duration: 0.2s;
+    cursor: default;
+
+    img {
+      max-width: 70px;
+      max-height: 70px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.whoRwe {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+
+  // img {
+  //   // max-height: 230px;
+  // }
+
+  .whoCard {
+    height: 400px;
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+
+    // img {
+    //   width: auto;
+    // }
+  }
+}
+
+.footer {
+  background-color: rgba(255, 255, 255, 0.406);
+  height: 400px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+
+  ul {
+    list-style: square;
+    font-size: 24px;
+    font-weight: bold;
+    // color: rgb(74, 74, 252);
+  }
 }
