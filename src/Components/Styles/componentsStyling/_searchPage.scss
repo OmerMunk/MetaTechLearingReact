@@ -1,0 +1,33 @@
+.search {
+  h3 {
+    font-weight: bold;
+  }
+
+  input {
+    outline: none;
+    width: 350px;
+    height: 40px;
+    margin-bottom: 30px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: aliceblue;
+  }
+  .card {
+    margin: auto;
+    // padding: 0;
+    width: 600px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .card:hover {
+    background-color: rgba(215, 215, 215, 0.911);
+    // font-size: 22px;
+  }
+
+  .searchBtn {
+    background-color: transparent;
+    color: $linksColor;
+    font-size: 1.2rem;
+    border: none;
+  }
+}
