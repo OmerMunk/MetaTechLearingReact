@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Button, Container } from "react-bootstrap";
 import axios from "axios";
 import AddLesson from "./addLesson";
-import { Link } from "react-router-dom";
 import EditDetailsFormModal from "./EditDetailsFormModal";
 import UserTest from "../Tests/UserTest";
-import LessonHistory from "../Lessons/LessonsHistory/LessonHistory";
-import { isCompositeComponent } from "react-dom/test-utils";
 
-const UserProfile = (props) => {
+const UserProfile = () => {
   const [userProfile, setUserProfile] = useState("");
   const [credits, setCredits] = useState(0);
   const [token, setToken] = useState("");
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [studentTeachers, setStudentTeahers] = useState([]);
+  // const [teacherStudents, setTeacherStudents] = useState([]);
 
   const getProfile = () => {
     const token = window.localStorage.getItem("token");

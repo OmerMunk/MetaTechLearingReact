@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Form, Button, Modal } from "react-bootstrap";
+import { Form, Modal } from "react-bootstrap";
 import axios from "axios";
-import { Redirect } from "react-router";
 
 const Login = (props) => {
   const [email, setEmail] = useState();
@@ -20,9 +19,10 @@ const Login = (props) => {
       .post("http://127.0.0.1:8000/api/token/", {
         username: email,
         password: password,
-      })
-      .then((response) => {
-        window.localStorage.setItem("token", response.data.token);
+            }
+        )
+            .then(response => {
+                props.tokenHandler(response.data.token)
         // console.log(response)
         props.loginClicked();
         setEmail("");

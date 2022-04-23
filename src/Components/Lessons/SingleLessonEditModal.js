@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import {Button, Form, Modal} from "react-bootstrap";
-import PropTypes from "prop-types";
+
 import axios from "axios";
-import {Link} from "react-router-dom";
+
 
 const SingleLessonEditModal = (props) =>{
 
@@ -11,6 +11,8 @@ const SingleLessonEditModal = (props) =>{
     const [studentEmail,setStudentEmail] = useState('')
     const [subject,setSubject] = useState(props.subject)
     const [recordingUrl,setRecordingUrl] = useState(props.embedId)
+    const [materialUrl,setMaterialUrl] = useState(props.materialUrl)
+    const [length, setLength] = useState(props.length)
 
     const dateChangeHandler = (event) => {
         setDate(event.target.value)
@@ -25,6 +27,13 @@ const SingleLessonEditModal = (props) =>{
     const recordingUrlChangeHandler = (event) => {
         setRecordingUrl(event.target.value)
     }
+    const materialUrlChangeHandler = (event) => {
+        setMaterialUrl(event.target.value)
+    }
+
+    const lengthChangeHandler = (event) => {
+        setLength(event.target.value)
+    }
 
     const handleSubmit = (event) => {
         console.log(props.token)
@@ -35,6 +44,8 @@ const SingleLessonEditModal = (props) =>{
             subject: subject,
             recording_url: recordingUrl,
             lesson_date: date,
+            lesson_material_url: materialUrl,
+            length: length
             // lesson_material: lessonMaterial,
             // length: length
         },{headers: {Authorization: 'Token ' + props.token}}, )
@@ -94,6 +105,28 @@ const SingleLessonEditModal = (props) =>{
                         placeholder="Recording"
                         value={recordingUrl}
                         onChange={recordingUrlChangeHandler}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>
+                        <h4>Material:</h4>
+                    </Form.Label>
+                    <Form.Control
+                        type="text"
+                        placeholder="Material"
+                        value={materialUrl}
+                        onChange={materialUrlChangeHandler}
+                    />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>
+                        <h4>Length:</h4>
+                    </Form.Label>
+                    <Form.Control
+                        type="number"
+                        placeholder="Lesson Length"
+                        value={length}
+                        onChange={lengthChangeHandler}
                     />
                 </Form.Group>
             </Modal.Body>
