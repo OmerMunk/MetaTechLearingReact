@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {Container } from "react-bootstrap";
+import {Button, Container} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import SingleLesson from "../SingleLesson";
+import FilterModal from "./FilterModal";
 
 const LessonHistory = () => {
 
@@ -87,6 +88,10 @@ const LessonHistory = () => {
       <h1>Lesson History</h1>
       <hr />
       <Link to="/user_profile">Back To Profile</Link>
+        <Button onClick={filterModalHandler} variant='warning'>Filter</Button>
+        {filterType && <Button onClick={unfilter} >UnFilter </Button>}
+        <FilterModal show={showFilterModal} toggle={filterModalHandler} setFilterType={setFilterType}
+                     setFilterDetails={setFilterDetails}/>
       <div>{lessons_list}</div>
     </Container>
   );
