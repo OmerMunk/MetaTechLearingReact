@@ -3,13 +3,17 @@
   color: #fff;
 
   .card {
-    color: #333;
-    width: 400px;
+    width: 600px;
     margin: 10px auto;
-    cursor: pointer;
-    font-size: 24px;
+  }
+  .card-1 {
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    width: 750px;
   }
   .card:hover {
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(222, 222, 222);
+    cursor: pointer;
   }
 }

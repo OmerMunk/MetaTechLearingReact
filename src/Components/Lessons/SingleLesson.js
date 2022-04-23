@@ -1,102 +1,120 @@
-import React, {useState} from "react";
-import {Button, Container} from "react-bootstrap";
-import './SingleLesson.css'
+import React, { useState } from "react";
+import { Container } from "react-bootstrap";
+import "./SingleLesson.css";
 import SingleLessonExpendedModal from "./SingleLessonExpendedModal";
 import SingleLessonEditModal from "./SingleLessonEditModal";
 import axios from "axios";
-
+import { useNavigate } from "react-router";
 
 const SingleLesson = (props) => {
-    console.log('aaa')
-    console.log(props.admin)
+  // const navigate = useNavigate();
+  const approveLessonHandler = (event) => {
+    event.preventDefault();
+    axios
+      .patch(
+        "http://127.0.0.1:8000/api/admin/approve",
+        {
+          id: props.id,
+          approved: true,
+        },
+        { headers: { Authorization: "Token " + props.token } }
+      )
+      .then((response) => {
+        // console.log(response);
+        // props.toggle();
+        props.renderList((prev) => !prev);
 
-    console.log('aaa')
+        // navigate("/");
+      });
+  };
 
-    const approveLessonHandler = (event) => {
-            event.preventDefault();
-            axios.patch('http://127.0.0.1:8000/api/admin/approve', {
-                id: props.id,
-                approved: true
-            },{headers: {Authorization: 'Token ' + props.token}}, )
-                .then(response =>{
-                    console.log(response)
-                    props.toggle()
-                    window.location.href=('admin_panel')
-                })
+  const [showLessonModal, setShowLessonModal] = useState(false);
+  const [showEditLessonModal, setShowEditLessonModal] = useState(false);
 
-    }
+  const showModalHandler = () => {
+    setShowLessonModal(!showLessonModal);
+  };
 
+  const showEditModalHandler = () => {
+    setShowEditLessonModal(!showEditLessonModal);
+  };
 
-    const [showLessonModal, setShowLessonModal] = useState(false)
-    const [showEditLessonModal, setShowEditLessonModal] = useState(false)
+  const switchModals = () => {
+    setShowLessonModal(!showLessonModal);
+    setShowEditLessonModal(!showEditLessonModal);
+  };
 
-    const showModalHandler = () => {
-        setShowLessonModal(!showLessonModal)
-    }
+  return (
+    <div>
+      <Container className="black_border">
+        <p>Lesson Date: {props.date} </p>
+        <p>Subject: {props.subject} </p>
+        <p>Student: {props.student} </p>
+        <button className="benBtn" onClick={showModalHandler}>
+          View
+        </button>
+        {props.userType === "teacher" || props.admin ? (
+          props.approved ? (
+            <button
+              className="benBtn benGreenBtn"
+              style={{ margin: "0.3rem 0.5rem", cursor: "not-allowed" }}
+            >
+              APPROVED
+            </button>
+          ) : (
+            <>
+              {props.admin && (
+                <button
+                  className="benBtn benGreenBtn"
+                  onClick={approveLessonHandler}
+                >
+                  APPROVE
+                </button>
+              )}
+              <button
+                style={{ cursor: "not-allowed" }}
+                className="benBtn benOrangeBtn"
+                onClick={approveLessonHandler}
+              >
+                Pending Approval
+              </button>
+              <button className="benBtn" onClick={showEditModalHandler}>
+                Edit
+              </button>
+            </>
+          )
+        ) : (
+          <></>
+        )}
+      </Container>
+      <SingleLessonExpendedModal
+        switch={switchModals}
+        id={props.id}
+        date={props.date}
+        student={props.student}
+        subject={props.subject}
+        show={showLessonModal}
+        toggle={showModalHandler}
+        recordingUrl={props.recordingUrl}
+        userType={props.userType}
+        materialUrl={props.materialUrl}
+        length={props.length}
+        approved={props.approved}
+      />
+      <SingleLessonEditModal
+        token={props.token}
+        id={props.id}
+        date={props.date}
+        student={props.student}
+        subject={props.subject}
+        show={showEditLessonModal}
+        toggle={showEditModalHandler}
+        recordingUrl={props.recordingUrl}
+        materialUrl={props.materialUrl}
+        length={props.length}
+      />
+    </div>
+  );
+};
 
-    const showEditModalHandler = () => {
-        setShowEditLessonModal(!showEditLessonModal)
-    }
-
-    const switchModals = () => {
-        setShowLessonModal(!showLessonModal)
-        setShowEditLessonModal(!showEditLessonModal)
-    }
-
-    return (
-        <div>
-                <Container  className="black_border">
-                    <p>Lesson Date: {props.date} </p>
-                    <p>Subject: {props.subject} </p>
-                    <p>Student: {props.student} </p>
-                    <button className="benBtn"  onClick={showModalHandler} >View</button>
-                    {props.userType === 'teacher' || props.admin?
-
-                        (props.approved?
-                        (<button className="benBtn" style={{margin: '0.3rem 0.5rem'}} >APPROVED</button> )
-                        :
-                        (<>
-                            {props.admin && <button className="benBtn"  onClick={approveLessonHandler} >APPROVE</button> }
-                            <button className="benBtn"  onClick={approveLessonHandler}  >Pending Approval</button>
-                            <button className="benBtn"  onClick={showEditModalHandler} >Edit</button>
-                        </>))
-                        :
-                        (<></>)
-
-                    }
-
-
-                </Container>
-            <SingleLessonExpendedModal
-                switch={switchModals}
-                id={props.id}
-                date={props.date}
-                student={props.student}
-                subject={props.subject}
-                show={showLessonModal}
-                toggle={showModalHandler}
-                recordingUrl={props.recordingUrl}
-                userType={props.userType}
-                materialUrl={props.materialUrl}
-                length={props.length}
-                approved={props.approved}
-            />
-            <SingleLessonEditModal
-                token={props.token}
-                id={props.id}
-                date={props.date}
-                student={props.student}
-                subject={props.subject}
-                show={showEditLessonModal}
-                toggle={showEditModalHandler}
-                recordingUrl={props.recordingUrl}
-                materialUrl={props.materialUrl}
-                length={props.length}
-
-
-            />
-        </div>
-    )
-}
-
-export default SingleLesson
+export default SingleLesson;

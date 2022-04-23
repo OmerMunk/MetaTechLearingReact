@@ -44,19 +44,26 @@ img {
 .benBtn {
   background-color: transparent;
   width: 200px;
-  color: purple;
+  color: #3927fc;
   font-size: 22px;
-  border: 1px solid purple;
+  border: 1px solid #3927fc;
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
+  margin: 3px 3px;
 }
 
 .benBtn:hover {
-  background-color: rgba(208, 133, 208, 0.6);
+  background-color: #3927fc;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   color: #fff;
+}
+
+.benBtn:disabled {
+  color: black;
+  cursor: not-allowed;
+  border: 1px solid black;
 }
 
 .benCloseBtn {
@@ -65,10 +72,84 @@ img {
 }
 
 .benCloseBtn:hover {
-  background-color: rgba(235, 88, 88, 0.6);
+  background-color: #fc3535;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
   color: #fff;
+}
+
+.benGreenBtn {
+  border: 1px solid #00b646;
+  color: #00b646;
+}
+
+.benGreenBtn:hover {
+  background-color: #00b646;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  color: #fff;
+}
+
+.benBlackBtn {
+  border: 1px solid black;
+  color: black;
+}
+
+.benBlackBtn:hover {
+  background-color: black;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  color: #fff;
+}
+
+.benOrangeBtn {
+  border: 1px solid orange;
+  color: orange;
+}
+
+.benOrangeBtn:hover {
+  background-color: orange;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  color: #fff;
+}
+
+.benWhiteBtn {
+  border: 1px solid white;
+  color: white;
+}
+
+.benWhiteBtn:hover {
+  background-color: white;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  color: black;
+}
+
+.benLoginBtn {
+  background-color: #fc23e3;
+  width: 200px;
+  color: white;
+  font-size: 22px;
+  border: 1px solid white;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px auto;
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+}
+
+.benLoginBtn:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.modalLink {
+  color: #0088ff;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 5px;
 }
 
 .container {
@@ -86,6 +167,32 @@ img {
   padding: 20px;
   margin: 10px;
   color: #333;
+}
+
+.cardBlue {
+  background-color: rgba(86, 182, 255, 0.5);
+  border-radius: 30px;
+  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px;
+  color: #333;
+}
+
+.cardBlue::-webkit-scrollbar {
+  z-index: 10;
+}
+
+.cardBlue::-webkit-scrollbar-thumb {
+  background-color: #a01da0;
+  border-radius: 15px;
+}
+
+.cardBlue::-webkit-scrollbar-track {
+  background-color: rgba(0, 48, 242, 0.618);
+  width: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
 }
 
 .btn {
@@ -246,6 +353,18 @@ img {
   padding: 4rem;
 }
 
+.w-50 {
+  width: 50px;
+}
+
+.w-80 {
+  width: 80px;
+}
+
+.autoMarg {
+  margin: auto;
+}
+
 .navBar a {
   color: #333;
   cursor: pointer;
@@ -318,15 +437,20 @@ img {
 }
 
 .test .card {
-  color: #333;
-  width: 400px;
+  width: 600px;
   margin: 10px auto;
-  cursor: pointer;
-  font-size: 24px;
+}
+
+.test .card-1 {
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  width: 750px;
 }
 
 .test .card:hover {
-  background-color: #eeeeee;
+  background-color: #dedede;
+  cursor: pointer;
 }
 
 .homePage h1 {

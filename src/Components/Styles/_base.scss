@@ -44,18 +44,30 @@ img {
 .benBtn {
   background-color: transparent;
   width: 200px;
-  color: purple;
+  color: rgb(57, 39, 252);
   font-size: 22px;
-  border: 1px solid purple;
+  border: 1px solid rgb(57, 39, 252);
   border-radius: 6px;
   font-weight: bold;
   cursor: pointer;
-
+  margin: 3px 3px;
   &:hover {
-    background-color: rgba(208, 133, 208, 0.6);
+    background-color: rgb(57, 39, 252);
     transition: 0.3s ease-in-out;
     color: #fff;
   }
+
+  &:disabled {
+    // background-color: orange;
+    // border: 1px solid orange;
+    color: black;
+    cursor: not-allowed;
+    border: 1px solid black;
+  }
+
+  // &:disabled:hover {
+  //   background-color: transparent;
+  // }
 }
 
 .benCloseBtn {
@@ -63,7 +75,7 @@ img {
   color: rgb(252, 53, 53);
 
   &:hover {
-    background-color: rgba(235, 88, 88, 0.6);
+    background-color: rgb(252, 53, 53);
     transition: 0.3s ease-in-out;
     color: #fff;
   }
@@ -74,8 +86,64 @@ img {
   color: rgb(0, 182, 70);
 
   &:hover {
-    background-color: rgba(235, 88, 88, 0.6);
+    background-color: rgb(0, 182, 70);
     transition: 0.3s ease-in-out;
     color: #fff;
   }
+}
+
+.benBlackBtn {
+  border: 1px solid rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+
+  &:hover {
+    background-color: rgb(0, 0, 0);
+    transition: 0.3s ease-in-out;
+    color: #fff;
+  }
+}
+
+.benOrangeBtn {
+  border: 1px solid orange;
+  color: orange;
+
+  &:hover {
+    background-color: orange;
+    transition: 0.3s ease-in-out;
+    color: #fff;
+  }
+}
+
+.benWhiteBtn {
+  border: 1px solid white;
+  color: white;
+
+  &:hover {
+    background-color: white;
+    transition: 0.3s ease-in-out;
+    color: black;
+  }
+}
+
+.benLoginBtn {
+  background-color: rgb(252, 35, 227);
+  width: 200px;
+  color: rgb(255, 255, 255);
+  font-size: 22px;
+  border: 1px solid white;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 10px auto;
+  transition-duration: 0.2s;
+}
+.benLoginBtn:hover {
+  transform: scale(1.1);
+}
+
+.modalLink {
+  color: rgb(0, 136, 255);
+  cursor: pointer;
+  font-size: 18px;
+  margin: 5px;
 }

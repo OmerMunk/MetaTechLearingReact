@@ -19,10 +19,9 @@ const Login = (props) => {
       .post("http://127.0.0.1:8000/api/token/", {
         username: email,
         password: password,
-            }
-        )
-            .then(response => {
-                props.tokenHandler(response.data.token)
+      })
+      .then((response) => {
+        props.tokenHandler(response.data.token);
         // console.log(response)
         props.loginClicked();
         setEmail("");
@@ -46,7 +45,11 @@ const Login = (props) => {
     <Modal show={props.showLogin}>
       <Form>
         <Modal.Header>
-          <h1>Sign In</h1>
+          <img
+            style={{ width: "200px", margin: "auto" }}
+            src="MTLlogo.png"
+            alt="metalogo"
+          />
         </Modal.Header>
         <Modal.Body>
           <Form.Group>
@@ -74,7 +77,7 @@ const Login = (props) => {
             style={{ width: "100px" }}
             type="submit"
             onClick={handleSubmit}
-            className="benBtn"
+            className="benBtn benGreenBtn"
           >
             {" "}
             Sign In

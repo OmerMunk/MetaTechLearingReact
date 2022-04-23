@@ -112,7 +112,7 @@ const EditDetailsFormModal = (props) => {
             type="submit"
             onClick={handleSubmit}
             style={{ width: "70px" }}
-            className="benBtn"
+            className="benBtn benGreenBtn"
           >
             {" "}
             Save

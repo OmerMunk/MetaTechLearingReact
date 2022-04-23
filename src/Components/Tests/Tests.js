@@ -29,41 +29,43 @@ const Tests = () => {
   }, []);
 
   return (
-    <div className="test text-center ">
+    <div className="test text-center">
       <header>
         <h1>Test Yourself</h1>
         <p>We dare you to try! Enjoy :)</p>
         <hr />
       </header>
-      {tests === [] && <h1>Ben</h1>}
-      {tests.length > 0 &&
-        tests[0].data.map((value, index) => {
-          return (
-            <div
-              onClick={() => displaySingleTest(value)}
-              className="card"
-              key={value.id}
-            >
-              <div>
-                {/* <Button
+      <section>
+        {tests === [] && <h1>Ben</h1>}
+        {tests.length > 0 &&
+          tests[0].data.map((value, index) => {
+            return (
+              <div
+                onClick={() => displaySingleTest(value)}
+                className="card"
+                key={value.id}
+              >
+                <div>
+                  {/* <Button
                   className="button_links"
                   onClick={() => displaySingleTest(value)}
                 > */}
-                {value.name}
-                {/* </Button> */}
+                  {value.name}
+                  {/* </Button> */}
+                </div>
+                <br />
               </div>
-              <br />
-            </div>
-          );
-        })}
+            );
+          })}
 
-      {singleTest !== {} && (
-        <SingleTest
-          close={closeModal}
-          show={showTestModal}
-          singleTest={singleTest}
-        />
-      )}
+        {singleTest !== {} && (
+          <SingleTest
+            close={closeModal}
+            show={showTestModal}
+            singleTest={singleTest}
+          />
+        )}
+      </section>
     </div>
   );
 };

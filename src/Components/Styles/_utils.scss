@@ -14,6 +14,32 @@
   color: #333;
 }
 
+.cardBlue {
+  background-color: rgba($primaryColor, 0.5);
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px;
+  color: #333;
+  &::-webkit-scrollbar {
+    // background-color: rgb(49, 0, 128);
+    // border-radius: 15px;
+    z-index: 10;
+    // border: 1px solid white;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(160, 29, 160);
+    border-radius: 15px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgba(0, 48, 242, 0.618);
+    width: 10px;
+    border: 1px solid white;
+    border-radius: 10px;
+  }
+}
+
 .btn {
   display: inline-block;
   padding: 10px 30px;
@@ -163,4 +189,16 @@
 
 .p-5 {
   padding: 4rem;
+}
+
+.w-50 {
+  width: 50px;
+}
+
+.w-80 {
+  width: 80px;
+}
+
+.autoMarg {
+  margin: auto;
 }

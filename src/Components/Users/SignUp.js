@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 
 const SignUp = (props) => {
-  const type = "student";
+  const type = "teacher";
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [secondPassword, setSecondPassword] = useState();
@@ -90,7 +90,10 @@ const SignUp = (props) => {
   return (
     <section className="formWidth">
       <Form className="card sign-up-form ">
-        <h2>Sign Up</h2>
+        <div>
+          <img style={{ width: "150px" }} src="MTLlogo.png" />
+          {/* <h2>Sign Up</h2> */}
+        </div>
         <hr />
         <Form.Group>
           <Form.Label>Email</Form.Label>
@@ -164,7 +167,12 @@ const SignUp = (props) => {
             onChange={secondPasswordChangeHandler}
           />
         </Form.Group>
-        <button className="benBtn" type="submit" onClick={handleSubmit}>
+        <button
+          className="benLoginBtn"
+          type="submit"
+          onClick={handleSubmit}
+          // style={{ backgroundColor: "white", color: "black" }}
+        >
           Sign Up
         </button>
       </Form>
