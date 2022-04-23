@@ -6,15 +6,15 @@ import { Link } from "react-router-dom";
 import EditDetailsFormModal from "./EditDetailsFormModal";
 import UserTest from "../Tests/UserTest";
 import LessonHistory from "../Lessons/LessonsHistory/LessonHistory";
+import { isCompositeComponent } from "react-dom/test-utils";
 
 const UserProfile = (props) => {
   const [userProfile, setUserProfile] = useState("");
   const [credits, setCredits] = useState(0);
-  // const [teachers, setTeachers] = useState()
-  // const [students, setStudents] = useState()
   const [token, setToken] = useState("");
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
+  const [studentTeachers, setStudentTeahers] = useState([]);
 
   const getProfile = () => {
     const token = window.localStorage.getItem("token");
@@ -27,15 +27,24 @@ const UserProfile = (props) => {
         setUserProfile(response.data.profile);
         setCredits(response.data.credits);
       });
-    console.log(userProfile);
+    // console.log(userProfile);
   };
 
-  // const getTeachers = () => {
-  //     axios.get('http://127.0.0.1:8000/api/get_teachers', {headers: {Authorization: 'Token ' + token}})
-  //         .then(response => {
-  //             console.log(response.data)
-  //         })
-  // }
+  const getTeachers = () => {
+    if (token) {
+      if (userProfile.type && userProfile.type.type === "student") {
+        axios
+          .get("http://127.0.0.1:8000/api/get_teachers", {
+            headers: {
+              Authorization: "Token " + token,
+            },
+          })
+          .then((response) => {
+            setStudentTeahers(response.data);
+          });
+      }
+    }
+  };
 
   const ShowAddLessonModalHandler = () => {
     setShowAddModal(!showAddModal);
@@ -49,6 +58,10 @@ const UserProfile = (props) => {
     getProfile();
   }, []);
 
+  useEffect(() => {
+    getTeachers();
+  }, [token, userProfile]);
+
   return (
     <div
       className="text-center card grid"
@@ -56,8 +69,8 @@ const UserProfile = (props) => {
     >
       {userProfile === "" && <h1>didnt load</h1>}
       {userProfile !== "" && (
-        <section className="card">
-          <h1>User Profile Page</h1>
+        <section className="card" style={{ height: "100%" }}>
+          <h1>{userProfile.user.first_name} Profile Page</h1>
           <p>
             <strong>Email</strong>: {userProfile.user.email}
           </p>
@@ -80,12 +93,12 @@ const UserProfile = (props) => {
           <p>
             <strong>Credits:</strong> {credits}
           </p>
-          <Button
-            style={{ color: "blue", border: "1px solid blue" }}
-            onClick={ShowEditModalHandler}
-          >
-            Edit
-          </Button>
+          <center>
+            <button className="benBtn" onClick={ShowEditModalHandler}>
+              Edit Profile
+            </button>
+          </center>
+          {/* <a className="benBtn benCloseBtn">Lessons History</a> */}
           <br />
           <EditDetailsFormModal
             profile={userProfile}
@@ -93,13 +106,10 @@ const UserProfile = (props) => {
             show={showEditModal}
             toggle={ShowEditModalHandler}
           />
-          <Link to="/lessons_history">Lessons History</Link>
+
           {userProfile.type.type === "teacher" && (
             <div>
-              <button
-                className="btnWithPrimary"
-                onClick={ShowAddLessonModalHandler}
-              >
+              <button className="benBtn" onClick={ShowAddLessonModalHandler}>
                 Add Lesson
               </button>
               <AddLesson
@@ -111,11 +121,36 @@ const UserProfile = (props) => {
           )}
         </section>
       )}
-      <section>
-        <UserTest />
-        <div></div>
+      <section className="grid-3">
+        <div className="card">
+          <a
+            href="/lessons_history"
+            style={{ width: "90%", margin: "auto" }}
+            className="benBtn"
+          >
+            Lessons History
+          </a>
+        </div>
+        {userProfile.type && userProfile.type.type === "student" && (
+          <UserTest />
+        )}
+        {userProfile.type && userProfile.type.type === "student" && (
+          <div className="card">
+            <h3>My Teachers</h3>
+            <hr />
+            {studentTeachers.map((value, index) => {
+              return (
+                <span key={index}>
+                  {value.profile.user.first_name} {value.profile.user.last_name}{" "}
+                  - {value.profile.phone_number}
+                </span>
+              );
+            })}
+          </div>
+        )}
       </section>
     </div>
   );
 };
+
 export default UserProfile;

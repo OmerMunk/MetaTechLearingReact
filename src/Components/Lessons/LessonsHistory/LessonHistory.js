@@ -22,7 +22,7 @@ const LessonHistory = () => {
 
   const renderLesson = (lesson) => {
     return (
-      <div className="card">
+      <div className="card text-center">
         <SingleLesson
           date={lesson.lesson_date}
           subject={lesson.subject.subject_name}
@@ -40,8 +40,9 @@ const LessonHistory = () => {
   }, []);
 
   return (
-    <Container>
+    <Container className="text-center">
       <h1>Lesson History</h1>
+      <hr />
       <Link to="/user_profile">Back To Profile</Link>
       <div>{lessons_list}</div>
     </Container>

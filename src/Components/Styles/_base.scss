@@ -40,3 +40,31 @@ img {
   color: rgb(35, 132, 250);
   cursor: pointer;
 }
+
+.benBtn {
+  background-color: transparent;
+  width: 200px;
+  color: purple;
+  font-size: 22px;
+  border: 1px solid purple;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(208, 133, 208, 0.6);
+    transition: 0.3s ease-in-out;
+    color: #fff;
+  }
+}
+
+.benCloseBtn {
+  border: 1px solid rgb(252, 53, 53);
+  color: rgb(252, 53, 53);
+
+  &:hover {
+    background-color: rgba(235, 88, 88, 0.6);
+    transition: 0.3s ease-in-out;
+    color: #fff;
+  }
+}

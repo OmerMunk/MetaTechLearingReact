@@ -116,12 +116,16 @@ const SingleTest = (props) => {
               })}
             </Modal.Body>
             <Modal.Footer>
-              <Button onClick={handleSubmit} type="submit">
+              <button onClick={handleSubmit} className="benBtn" type="submit">
                 Submit Test
-              </Button>
-              <Button onClick={props.close} variant={"danger"}>
+              </button>
+              <button
+                onClick={props.close}
+                className="benBtn benCloseBtn"
+                variant={"danger"}
+              >
                 Close
-              </Button>
+              </button>
             </Modal.Footer>
           </Form>
         </Modal>

@@ -1,0 +1,35 @@
+.sign-up-form {
+  background-color: rgba(86, 182, 255, 0.4);
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  margin: auto;
+
+  div {
+    text-align: center;
+    margin: auto;
+    outline: none;
+    width: 70%;
+  }
+  h2 {
+    text-align: center;
+    font-weight: bolder;
+  }
+
+  .benBtn {
+    margin: 10px auto;
+    border: 1px solid #fff;
+    color: #fff;
+    // background-color: white;
+
+    &:hover {
+      background-color: #fff;
+      color: black;
+    }
+  }
+}
+
+.formWidth {
+  margin: auto;
+  width: 800px;
+}

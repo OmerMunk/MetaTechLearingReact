@@ -39,8 +39,12 @@ const Tests = () => {
       {tests.length > 0 &&
         tests[0].data.map((value, index) => {
           return (
-            <div className="card" key={value.id}>
-              <div onClick={() => displaySingleTest(value)}>
+            <div
+              onClick={() => displaySingleTest(value)}
+              className="card"
+              key={value.id}
+            >
+              <div>
                 {/* <Button
                   className="button_links"
                   onClick={() => displaySingleTest(value)}

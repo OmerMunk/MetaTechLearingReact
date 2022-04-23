@@ -24,6 +24,7 @@ const UserTest = (props) => {
     <div className="card">
       <h4>{!showAllTest ? "Your Tests:" : "Your Last 3 Tests:"}</h4>
       {!test && ""}
+
       {showAllTest &&
         test &&
         test.slice(0, 3).map((value, index) => {
@@ -33,6 +34,7 @@ const UserTest = (props) => {
             </div>
           );
         })}
+
       {!showAllTest &&
         test &&
         test.map((value, index) => {
@@ -48,6 +50,15 @@ const UserTest = (props) => {
       >
         {showAllTest ? "Show More" : "Show Less"}
       </a>
+
+      {test.length === 0 && (
+        <p>
+          No tests yet!{" "}
+          <a href="/test" style={{ color: "rgb(35, 132, 250)" }}>
+            Let's do some
+          </a>
+        </p>
+      )}
     </div>
   );
 };
