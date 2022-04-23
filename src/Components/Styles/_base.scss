@@ -68,3 +68,14 @@ img {
     color: #fff;
   }
 }
+
+.benGreenBtn {
+  border: 1px solid rgb(0, 182, 70);
+  color: rgb(0, 182, 70);
+
+  &:hover {
+    background-color: rgba(235, 88, 88, 0.6);
+    transition: 0.3s ease-in-out;
+    color: #fff;
+  }
+}

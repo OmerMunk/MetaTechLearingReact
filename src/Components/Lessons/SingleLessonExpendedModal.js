@@ -29,8 +29,8 @@ const SingleLessonExpendedModal = (props) =>{
                 </div>
             </Modal.Body>
             <Modal.Footer>
-                {props.userType === 'teacher' && !props.approved && <Button onClick={props.switch}>Edit</Button> }
-                <Button onClick={props.toggle} variant='danger'>Close</Button>
+                {props.userType === 'teacher' && !props.approved && <button className="benBtn" onClick={props.switch}>Edit</button> }
+                <button className="benBtn benCloseBtn" onClick={props.toggle} >Close</button>
 
             </Modal.Footer>
         </Modal>

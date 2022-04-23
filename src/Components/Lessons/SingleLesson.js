@@ -7,6 +7,10 @@ import axios from "axios";
 
 
 const SingleLesson = (props) => {
+    console.log('aaa')
+    console.log(props.admin)
+
+    console.log('aaa')
 
     const approveLessonHandler = (event) => {
             event.preventDefault();
@@ -45,17 +49,19 @@ const SingleLesson = (props) => {
                     <p>Lesson Date: {props.date} </p>
                     <p>Subject: {props.subject} </p>
                     <p>Student: {props.student} </p>
-                    <Button style={{margin: '0.3rem 0.5rem'}} onClick={showModalHandler} variant='outline-primary'>View</Button>
-                    {props.userType === 'teacher' &&
-                        props.approved?
-                        (<Button style={{margin: '0.3rem 0.5rem'}}  variant='success'>APPROVED</Button> )
+                    <button className="benBtn"  onClick={showModalHandler} >View</button>
+                    {props.userType === 'teacher' || props.admin?
+
+                        (props.approved?
+                        (<button className="benBtn" style={{margin: '0.3rem 0.5rem'}} >APPROVED</button> )
                         :
                         (<>
-                            {props.admin && <Button style={{margin: '0.3rem 0.5rem'}} onClick={approveLessonHandler}  variant='success'>APPROVE</Button> }
-
-                            <Button style={{margin: '0.3rem 0.5rem'}} onClick={approveLessonHandler}  variant='secondary'>Pending Approval</Button>
-                            <Button style={{margin: '0.3rem 0.5rem'}} onClick={showEditModalHandler} variant='outline-danger'>Edit</Button>
-                        </>)
+                            {props.admin && <button className="benBtn"  onClick={approveLessonHandler} >APPROVE</button> }
+                            <button className="benBtn"  onClick={approveLessonHandler}  >Pending Approval</button>
+                            <button className="benBtn"  onClick={showEditModalHandler} >Edit</button>
+                        </>))
+                        :
+                        (<></>)
 
                     }
 
