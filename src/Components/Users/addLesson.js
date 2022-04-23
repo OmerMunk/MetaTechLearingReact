@@ -88,9 +88,9 @@ const AddLesson = (props) => {
                 setRecordUrl(null);
                 setStudentEmail(null);
             })
-            .catch((error) =>
+            .catch((error) =>{
                 console.log(error)
-                alert("One of the inputs are incorrect, check student email.")
+                alert("One of the inputs are incorrect, check student email.")}
             );
     };
 
