@@ -84,7 +84,7 @@ const SignUp = (props) => {
     <section className="formWidth" style={{marginTop:'5%'}}>
       <Form className="card sign-up-form ">
         <div>
-          <img style={{ width: "150px" }} src="MTLlogo.png" />
+          <img style={{ width: "150px" }} src="MTLlogo.png" alt='MetaTechLearningLogo' />
           {/* <h2>Sign Up</h2> */}
         </div>
         <hr />

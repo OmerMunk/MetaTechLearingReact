@@ -3,12 +3,11 @@ import axios from "axios";
 
 import UserDetails from "./UserDetails";
 
-const UsersList = (props) => {
+const UsersList = () => {
   const token = window.localStorage.getItem("token");
   const baseURL = "http://ec2-3-80-102-89.compute-1.amazonaws.com/api/all_users";
   const [users, setUsers] = useState([]);
   const [enteredSearch, setEnteredSearch] = useState("");
-  const [searchByName, setSearchByName] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [choseUser, setChoseUser] = useState();
   const [touched, setTouched] = useState(false);
@@ -47,7 +46,7 @@ const UsersList = (props) => {
   };
 
   useEffect(() => {
-    if (!token) return;
+    if (!token) return{};
   }, [users]);
 
   return (

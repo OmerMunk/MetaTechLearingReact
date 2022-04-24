@@ -46,15 +46,15 @@ const Footer = (props) => {
           © 2022 by MetaTech. All rights reserved.
           <br />
           <span style={{ zIndex: "1" }}>
-            <script
-              id="godaddy-security-s"
-              src="https://cdn.sucuri.net/badge/badge.js"
-              data-s="2002"
-              data-i="31ca60fd7f811e00f8aea88fc35af039eaba8c08b9"
-              data-p="o"
-              data-c="l"
-              data-t="g"
-            />
+            {/*<script*/}
+            {/*  id="godaddy-security-s"*/}
+            {/*  src="https://cdn.sucuri.net/badge/badge.js"*/}
+            {/*  data-s="2002"*/}
+            {/*  data-i="31ca60fd7f811e00f8aea88fc35af039eaba8c08b9"*/}
+            {/*  data-p="o"*/}
+            {/*  data-c="l"*/}
+            {/*  data-t="g"*/}
+            {/*/>*/}
           </span>
           <a href="https://www.freepik.com/vectors/business">
             color vectors created by freepik - www.freepik.com

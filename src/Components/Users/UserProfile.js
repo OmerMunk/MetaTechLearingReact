@@ -5,7 +5,6 @@ import EditDetailsFormModal from "./EditDetailsFormModal";
 import UserTest from "../Tests/UserTest";
 import AddSubject from "./AddSubject";
 import {ListGroup} from "react-bootstrap";
-import Footer from "../HomePage/Footer";
 
 const UserProfile = () => {
 

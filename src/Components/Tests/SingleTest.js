@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Button, Form, Modal } from "react-bootstrap";
+import {Form, Modal } from "react-bootstrap";
 import TestResult from "../UI/TestResult";
 
 const SingleTest = (props) => {
@@ -55,7 +55,7 @@ const SingleTest = (props) => {
 
   return (
     <>
-      {!singleTest.questions && <h1></h1>}
+      {!singleTest.questions && <h1/>}
       {singleTest.questions && (
         <Modal show={props.show}>
           <Form>
@@ -126,7 +126,6 @@ const SingleTest = (props) => {
               <button
                 onClick={props.close}
                 className="benBtn benCloseBtn"
-                variant={"danger"}
               >
                 Close
               </button>

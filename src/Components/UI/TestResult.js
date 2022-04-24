@@ -1,4 +1,4 @@
-import {Button, Modal, ModalBody} from "react-bootstrap";
+import {Modal} from "react-bootstrap";
 
 
 const TestResult =(props) => {

@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const UserTest = (props) => {
-  const [token, setToken] = useState("");
+const UserTest = () => {
   const [test, setTests] = useState([]);
   const [lastThreeTests, setLastThreeTest] = useState([]);
   const [showAllTest, setShowAllTest] = useState(true);
 
   useEffect(() => {
     const token = window.localStorage.getItem("token");
-    setToken(token);
     axios
       .get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/test_by_student", {
         headers: { Authorization: "Token " + token },

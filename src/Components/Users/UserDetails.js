@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import { Button, Modal } from "react-bootstrap";
+import React from "react";
+import { Modal } from "react-bootstrap";
 
 const UserDetailsModal = (props) => {
   const closeModal = () => {
