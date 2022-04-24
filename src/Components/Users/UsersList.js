@@ -52,7 +52,10 @@ const UsersList = (props) => {
 
   return (
     <Fragment>
-      <div className="text-center search">
+      <div
+        style={{ marginTop: "80px", marginBottom: "25%" }}
+        className="text-center search"
+      >
         <h1 style={{ color: "white" }}>Search Teacher: </h1>
         <hr />
         <input
@@ -85,11 +88,14 @@ const UsersList = (props) => {
                       className="card "
                       onClick={() => userClickHandler(value)}
                     >
-                      <strong>Name:</strong> {value.user.first_name}{" "}
-                      {value.user.last_name},<br /> <strong>Email:</strong>{" "}
-                      {value.user.email}
+                      <strong>Name:</strong> {value.profile.user.first_name}{" "}
+                      {value.profile.user.last_name},<br />{" "}
+                      <strong>Email:</strong> {value.profile.user.email}
                       <br />
-                      <strong>Phone Number:</strong> {value.phone_number}
+                      <strong>Phone Number:</strong>{" "}
+                      {value.profile.phone_number}
+                      <strong>Subjects: </strong> |
+                      {value.subjects.map((t, index) => t.subject_name + " | ")}
                     </div>
                     <br />
                   </div>

@@ -45,67 +45,83 @@ const Navigation = (props) => {
   };
 
   return (
-    <div style={{width:'100%', zIndex:'100'}} >
-      <nav  className="navBar">
+    <div style={{ width: "100%", zIndex: "100" }}>
+      <nav className="navBar">
         {/*<ul >*/}
-          <div style={{zIndex:'100',display:'flex',position:'fixed',justifyContent:'space-evenly', left:'10%',flexDirection:'row',width:'80%' ,top:'15px'}}>
+        <div
+          style={{
+            zIndex: "100",
+            display: "flex",
+            position: "fixed",
+            justifyContent: "space-evenly",
+            left: "10%",
+            flexDirection: "row",
+            width: "80%",
+            top: "15px",
+          }}
+        >
           {/*<div style={{display:'flex',position:'fixed',justifyContent:'space-evenly',flexDirection:'row',width:'100%' ,top:'0'}} className="flex sm-font">*/}
-            <a href="/" className="links">
-              <img
-                  style={{width:'45px', transform:'translateY(-10px)'}}
-                className="Logo"
-                src="MetaIconColor.png"
-                alt="MetaTechLogo"
-              />
-            </a>
-            <a className="links" href="/users_list">
-              Our Teachers
-            </a>
-            <a href="/tests" className="links">
-              Test Yourself
-            </a>
-            <a className="links" onClick={()=>{window.location.href='#about'}}>
-              About Us
-            </a>
-            <a className="links" onClick={props.contactClicked}>
-              Contact Us
-            </a>
-            {token ? (
-              isAdmin ? (
-                <span>
-                  <a className="links signArea" href="/admin_panel">
-                    Admin Panel {firstName}
-                  </a>
-                  <span className="signArea"> | </span>{" "}
-                  <a className="links signArea" onClick={signOutToggle}>
-                    {" "}
-                    Sign Out
-                  </a>
-                </span>
-              ) : (
-                <span>
-                  <a className="links signArea " href="/user_profile">
-                    Hello {firstName} {lastName}
-                  </a>{" "}
-                  <span className="signArea"> | </span>
-                  <a className="links signArea" onClick={signOutToggle}>
-                    Sign Out
-                  </a>
-                </span>
-              )
-            ) : (
+          <a href="/" className="links">
+            <img
+              style={{ width: "45px", transform: "translateY(-10px)" }}
+              className="Logo"
+              src="MetaIconColor.png"
+              alt="MetaTechLogo"
+            />
+          </a>
+          <a className="links" href="/users_list">
+            Our Teachers
+          </a>
+          <a href="/tests" className="links">
+            Test Yourself
+          </a>
+          <a
+            className="links"
+            onClick={() => {
+              window.location.href = "/#about";
+            }}
+          >
+            About Us
+          </a>
+          <a className="links" onClick={props.contactClicked}>
+            Contact Us
+          </a>
+          {token ? (
+            isAdmin ? (
               <span>
-                <a className="links signArea" href="/sign_up">
-                  Sign Up{" "}
+                <a className="links signArea" href="/admin_panel">
+                  Admin Panel {firstName}
                 </a>
-                <span className="signArea"> | </span>
-                <a className="links signArea" onClick={toggleModal}>
+                <span className="signArea"> | </span>{" "}
+                <a className="links signArea" onClick={signOutToggle}>
                   {" "}
-                  Sign In
+                  Sign Out
                 </a>
               </span>
-            )}
-          </div>
+            ) : (
+              <span>
+                <a className="links signArea " href="/user_profile">
+                  Hello {firstName} {lastName}
+                </a>{" "}
+                <span className="signArea"> | </span>
+                <a className="links signArea" onClick={signOutToggle}>
+                  Sign Out
+                </a>
+              </span>
+            )
+          ) : (
+            <span>
+              <a className="links signArea" href="/sign_up">
+                Sign Up{" "}
+              </a>
+              <span className="signArea"> | </span>
+              <a className="links signArea" onClick={toggleModal}>
+                {" "}
+                Sign In
+              </a>
+            </span>
+          )}
+        </div>
         {/*</ul>*/}
       </nav>
     </div>
