@@ -97,6 +97,8 @@ const LessonHistory = () => {
     }, [filterType]);
 
     return (
+        <>
+            <div style={{marginTop:'5%'}}>
         <Container className="text-center ">
             <h1 style={{color: "white"}}>Lesson History</h1>
             <hr/>
@@ -132,6 +134,9 @@ const LessonHistory = () => {
                 <div>{lessons_list}</div>
             </div>
         </Container>
+            </div>
+        </>
+
     );
 };
 

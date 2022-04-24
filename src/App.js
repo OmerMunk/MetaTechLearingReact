@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import "./App.css";
 import {Routes, Route} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import {Container} from "react-bootstrap";
 import Navigation from "./Components/General/Navigation";
 import HomePage from "./Components/HomePage/HomePage";
 import SignUp from "./Components/Users/SignUp";
@@ -14,13 +13,21 @@ import UsersList from "./Components/Users/UsersList";
 import AdminPanel from "./Components/Users/AdminPanel"
 
 import "./Components/Styles/style.css";
+import Footer from "./Components/HomePage/Footer";
+import SideBar from "./Components/HomePage/SideBar";
+import ContactUs from "./Components/General/ContactUs";
 
 function App() {
     const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showContactModal, setShowContactModal] = useState();
     const [isLogged, setLogged] = useState(false);
 
-    const showModal = () => {
+    const LoginModalHandler = () => {
         setShowLoginModal(!showLoginModal);
+    };
+
+    const ContactModalHandler = () => {
+        setShowContactModal(!showContactModal);
     };
 
     const tokenHandler = (value) => {
@@ -33,8 +40,11 @@ function App() {
     };
 
     return (
-        <Container>
-            <Navigation loginClicked={showModal} logged={toggleLogged}/>
+        <>
+        {/*<Container>*/}
+            <Navigation loginClicked={LoginModalHandler} logged={toggleLogged} contactClicked={ContactModalHandler}/>
+            <SideBar/>
+
             <Routes>
                 <Route path="/" element={<HomePage/>}/>
                 <Route path="/sign_up" element={<SignUp logged={toggleLogged}/>}/>
@@ -44,9 +54,13 @@ function App() {
                 <Route path="/tests" element={<Tests/>}/>
                 <Route path='/admin_panel' element={<AdminPanel/>}/>
             </Routes>
-            <Login showLogin={showLoginModal} loginClicked={showModal} logged={toggleLogged}
+            <Footer contactClicked={ContactModalHandler} />
+            <ContactUs showLogin={showContactModal} Clicked={ContactModalHandler} />
+            <Login showLogin={showLoginModal} loginClicked={LoginModalHandler} logged={toggleLogged}
                    tokenHandler={tokenHandler}/>
-        </Container>
+        {/*</Container>*/}
+        </>
+
     );
 }
 

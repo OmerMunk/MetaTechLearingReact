@@ -45,12 +45,14 @@ const Navigation = (props) => {
   };
 
   return (
-    <div>
-      <nav className="navBar">
-        <ul>
-          <div className="flex sm-font">
-            <a href="/" className="Logo">
+    <div style={{width:'100%', zIndex:'100'}} >
+      <nav  className="navBar">
+        {/*<ul >*/}
+          <div style={{zIndex:'100',display:'flex',position:'fixed',justifyContent:'space-evenly', left:'10%',flexDirection:'row',width:'80%' ,top:'15px'}}>
+          {/*<div style={{display:'flex',position:'fixed',justifyContent:'space-evenly',flexDirection:'row',width:'100%' ,top:'0'}} className="flex sm-font">*/}
+            <a href="/" className="links">
               <img
+                  style={{width:'45px', transform:'translateY(-10px)'}}
                 className="Logo"
                 src="MetaIconColor.png"
                 alt="MetaTechLogo"
@@ -62,7 +64,10 @@ const Navigation = (props) => {
             <a href="/tests" className="links">
               Test Yourself
             </a>
-            <a className="links" href="#">
+            <a className="links" onClick={()=>{window.location.href='#about'}}>
+              About Us
+            </a>
+            <a className="links" onClick={props.contactClicked}>
               Contact Us
             </a>
             {token ? (
@@ -101,7 +106,7 @@ const Navigation = (props) => {
               </span>
             )}
           </div>
-        </ul>
+        {/*</ul>*/}
       </nav>
     </div>
   );

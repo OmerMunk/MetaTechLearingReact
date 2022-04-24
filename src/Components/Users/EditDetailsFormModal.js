@@ -43,7 +43,6 @@ const EditDetailsFormModal = (props) => {
       )
       .then((response) => {
         console.log(response)
-        props.toggle();
       });
   };
 

@@ -1,15 +1,8 @@
 import React, { useState } from "react";
-import { Container } from "react-bootstrap";
 import {
-  Button,
   Form,
-  ListGroup,
-  Modal,
-  ModalHeader,
-  ModalTitle,
 } from "react-bootstrap";
 import axios from "axios";
-
 const SignUp = (props) => {
   const type = "teacher";
   const [email, setEmail] = useState();
@@ -88,7 +81,7 @@ const SignUp = (props) => {
   };
 
   return (
-    <section className="formWidth">
+    <section className="formWidth" style={{marginTop:'5%'}}>
       <Form className="card sign-up-form ">
         <div>
           <img style={{ width: "150px" }} src="MTLlogo.png" />
@@ -170,6 +163,7 @@ const SignUp = (props) => {
         <button
           className="benLoginBtn"
           type="submit"
+          style={{fontSize:'30px', marginTop:'30px'}}
           onClick={handleSubmit}
           // style={{ backgroundColor: "white", color: "black" }}
         >

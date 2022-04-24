@@ -5,6 +5,7 @@ import EditDetailsFormModal from "./EditDetailsFormModal";
 import UserTest from "../Tests/UserTest";
 import AddSubject from "./AddSubject";
 import {ListGroup} from "react-bootstrap";
+import Footer from "../HomePage/Footer";
 
 const UserProfile = () => {
 
@@ -110,9 +111,10 @@ const UserProfile = () => {
     }, [token, userProfile]);
 
     return (
+        <>
         <div
             className="text-center card grid"
-            style={{backgroundColor: "rgba(86, 182, 255, 0.4)"}}
+            style={{backgroundColor: "rgba(86, 182, 255, 0.4)", left:'10%', width:'80%', top:'120px'}}
         >
             {userProfile === "" && <h1>didnt load</h1>}
             {userProfile !== "" && (
@@ -277,6 +279,25 @@ const UserProfile = () => {
                 )}
             </section>
         </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+    </>
     );
 };
 
