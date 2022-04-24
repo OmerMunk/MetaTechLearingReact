@@ -11,7 +11,7 @@ const Navigation = (props) => {
   useEffect(() => {
     if (token) {
       axios
-        .get("http://127.0.0.1:8000/api/current_user", {
+        .get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/current_user", {
           headers: { Authorization: "Token " + token },
         })
         .then((response) => {

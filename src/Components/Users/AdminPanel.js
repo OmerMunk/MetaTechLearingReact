@@ -16,7 +16,7 @@ const AdminPanel = () => {
 
   const isAdminHandler = () => {
     axios
-      .get("http://127.0.0.1:8000/api/current_user", {
+      .get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/current_user", {
         headers: { Authorization: "Token " + token },
       })
       .then((response) => {
@@ -26,7 +26,7 @@ const AdminPanel = () => {
 
   const getUnApproved = () => {
     axios
-      .get("http://127.0.0.1:8000/api/admin/get_un_approved", {
+      .get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/admin/get_un_approved", {
         headers: { Authorization: "Token " + token },
       })
       .then((response) => {

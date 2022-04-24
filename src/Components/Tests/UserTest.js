@@ -11,7 +11,7 @@ const UserTest = (props) => {
     const token = window.localStorage.getItem("token");
     setToken(token);
     axios
-      .get("http://127.0.0.1:8000/api/test_by_student", {
+      .get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/test_by_student", {
         headers: { Authorization: "Token " + token },
       })
       .then((res) => {

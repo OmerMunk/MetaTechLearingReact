@@ -18,7 +18,7 @@ const SingleTest = (props) => {
     let finalAns = {};
     answers.map((value) => (finalAns[value[0]] = value[1]));
     axios
-      .post("http://127.0.0.1:8000/api/test/" + props.singleTest.id, finalAns, {
+      .post("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/test/" + props.singleTest.id, finalAns, {
         headers: { Authorization: "Token " + token },
       })
       .then((response) => {

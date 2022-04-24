@@ -31,7 +31,7 @@ const EditDetailsFormModal = (props) => {
     event.preventDefault();
     axios
       .patch(
-        "http://127.0.0.1:8000/api/user/profile",
+        "http://ec2-3-80-102-89.compute-1.amazonaws.com/api/user/profile",
         {
           first_name: firstName,
           last_name: lastName,

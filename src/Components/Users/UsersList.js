@@ -5,7 +5,7 @@ import UserDetails from "./UserDetails";
 
 const UsersList = (props) => {
   const token = window.localStorage.getItem("token");
-  const baseURL = "http://127.0.0.1:8000/api/all_users";
+  const baseURL = "http://ec2-3-80-102-89.compute-1.amazonaws.com/api/all_users";
   const [users, setUsers] = useState([]);
   const [enteredSearch, setEnteredSearch] = useState("");
   const [searchByName, setSearchByName] = useState(false);

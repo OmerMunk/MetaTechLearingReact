@@ -12,7 +12,7 @@ const SingleLesson = (props) => {
     event.preventDefault();
     axios
       .patch(
-        "http://127.0.0.1:8000/api/admin/approve",
+        "http://ec2-3-80-102-89.compute-1.amazonaws.com/api/admin/approve",
         {
           id: props.id,
           approved: true,
