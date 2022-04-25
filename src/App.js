@@ -46,7 +46,7 @@ function App() {
             <SideBar/>
 
             <Routes>
-                {/*<Route path="/" element={<HomePage/>}/>*/}
+                <Route path="/" element={<HomePage/>}/>
                 <Route path="/sign_up" element={<SignUp logged={toggleLogged}/>}/>
                 <Route path="/user_profile/*" element={<UserProfile/>}/>
                 <Route path="/users_list" element={<UsersList/>}/>
