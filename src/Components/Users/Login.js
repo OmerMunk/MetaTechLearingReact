@@ -16,7 +16,7 @@ const Login = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/token/", {
+      .post("/api/token/", {
         username: email,
         password: password,
       })

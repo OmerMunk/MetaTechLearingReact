@@ -18,7 +18,7 @@ const AddLesson = (props) => {
 
 
     const getSubjects = () => {
-        axios.get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/get_subjects", {
+        axios.get("/api/get_subjects", {
             headers: {
                 Authorization: "Token " + token,
             },
@@ -67,7 +67,7 @@ const AddLesson = (props) => {
         event.preventDefault();
         axios
             .post(
-                "http://ec2-3-80-102-89.compute-1.amazonaws.com/api/lessons",
+                "/api/lessons",
                 {
                     student: studentEmail,
                     subject: subject,

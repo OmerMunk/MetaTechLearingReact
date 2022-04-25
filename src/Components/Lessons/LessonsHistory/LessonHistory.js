@@ -28,7 +28,7 @@ const LessonHistory = () => {
 
     const getUserType = () => {
         axios
-            .get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/user/getusertype", {
+            .get("/api/user/getusertype", {
                 headers: {Authorization: "Token " + token},
             })
             .then((response) => {
@@ -38,7 +38,7 @@ const LessonHistory = () => {
 
     const getProfile = () => {
         axios
-            .get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/user/profile", {
+            .get("/api/user/profile", {
                 headers: {Authorization: "Token " + token},
             })
             .then((response) => {
@@ -48,7 +48,7 @@ const LessonHistory = () => {
 
     const getLessons = () => {
         axios
-            .get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/lessons", {
+            .get("/api/lessons", {
                 headers: {Authorization: "Token " + token},
             })
             .then((response) => {

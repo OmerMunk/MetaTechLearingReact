@@ -9,7 +9,7 @@ const UserTest = () => {
   useEffect(() => {
     const token = window.localStorage.getItem("token");
     axios
-      .get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/test_by_student", {
+      .get("/api/test_by_student", {
         headers: { Authorization: "Token " + token },
       })
       .then((res) => {

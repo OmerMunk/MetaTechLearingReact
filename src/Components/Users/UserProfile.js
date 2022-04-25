@@ -20,7 +20,7 @@ const UserProfile = () => {
         const token = window.localStorage.getItem("token");
         setToken(token);
         axios
-            .get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/user/profile", {
+            .get("/api/user/profile", {
                 headers: {Authorization: "Token " + token},
             })
             .then((response) => {
@@ -35,7 +35,7 @@ const UserProfile = () => {
         if (token) {
             if (userProfile.type && userProfile.type.type === "student") {
                 axios
-                    .get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/get_teachers", {
+                    .get("/api/get_teachers", {
                         headers: {
                             Authorization: "Token " + token,
                         },
@@ -51,7 +51,7 @@ const UserProfile = () => {
         if (token) {
             if (userProfile.type && userProfile.type.type === "teacher") {
                 axios
-                    .get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/get_students", {
+                    .get("/api/get_students", {
                         headers: {
                             Authorization: "Token " + token,
                         },
@@ -66,7 +66,7 @@ const UserProfile = () => {
     const getSubjects = () => {
         if (token) {
             axios
-                .get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/subject", {
+                .get("/api/subject", {
                     headers: {
                         Authorization: "Token " + token,
                     },
@@ -81,7 +81,7 @@ const UserProfile = () => {
     const subjectDeleteHandler = (value) => {
         if (token) {
             const headers = {Authorization: "Token " + token}
-            axios.delete(`http://ec2-3-80-102-89.compute-1.amazonaws.com/api/subject/${value}`, {headers})
+            axios.delete(`/api/subject/${value}`, {headers})
                 .then((response) => {
                     console.log(response)
                     getSubjects()

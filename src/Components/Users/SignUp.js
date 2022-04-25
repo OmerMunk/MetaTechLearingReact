@@ -44,7 +44,7 @@ const SignUp = (props) => {
     console.log("inside handle submit");
     if (password && password === secondPassword) {
       axios
-        .post("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/register", {
+        .post("/api/register", {
           email: email,
           password: password,
           first_name: firstName.charAt(0).toUpperCase() + firstName.slice(1),
@@ -56,7 +56,7 @@ const SignUp = (props) => {
         })
         .then(() => {
           axios
-            .post("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/token/", {
+            .post("/api/token/", {
               username: email,
               password: password,
             })

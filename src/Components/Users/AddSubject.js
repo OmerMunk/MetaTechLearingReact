@@ -12,7 +12,7 @@ const AddSubject = (props) => {
         const token = window.localStorage.getItem('token')
         if (token) {
             axios
-                .post("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/subject", {subject:value}, {
+                .post("/api/subject", {subject:value}, {
                     headers: {
                         Authorization: "Token " + token,
                     },
@@ -31,7 +31,7 @@ const AddSubject = (props) => {
 
     const getSubjects = () => {
         const token = window.localStorage.getItem('token')
-        axios.get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/get_subjects", {
+        axios.get("/api/get_subjects", {
             headers: {
                 Authorization: "Token " + token,
             },

@@ -9,7 +9,7 @@ const Tests = () => {
   const [showTestModal, setShowTestModal] = useState(false);
 
   const getTests = () => {
-    axios.get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/test").then((response) => {
+    axios.get("/api/test").then((response) => {
       setTests([response]);
     });
   };

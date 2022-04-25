@@ -21,7 +21,7 @@ const SingleLessonEditModal = (props) => {
     const getSubjects = () => {
         const token = window.localStorage.getItem('token')
         if (token) {
-            axios.get("http://ec2-3-80-102-89.compute-1.amazonaws.com/api/get_subjects", {
+            axios.get("/api/get_subjects", {
                 headers: {
                     Authorization: "Token " + token,
                 },
@@ -64,7 +64,7 @@ const SingleLessonEditModal = (props) => {
         event.preventDefault();
         axios
             .patch(
-                "http://ec2-3-80-102-89.compute-1.amazonaws.com/api/lessons",
+                "/api/lessons",
                 {
                     id: props.id,
                     student: studentEmail,
