@@ -3,7 +3,7 @@ import axios from "axios";
 
 const UserTest = () => {
   const [test, setTests] = useState([]);
-  const [lastThreeTests, setLastThreeTest] = useState([]);
+  // const [lastThreeTests, setLastThreeTest] = useState([]);
   const [showAllTest, setShowAllTest] = useState(true);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const UserTest = () => {
       })
       .then((res) => {
         setTests(res.data);
-        setLastThreeTest(res.data);
+        // setLastThreeTest(res.data);
       });
   }, []);
 

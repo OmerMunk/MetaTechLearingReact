@@ -145,7 +145,7 @@ img {
 }
 
 .benLoginBtn:hover {
-  -webkit-transform: scale(1.1);
+  /*-webkit-transform: scale(1.1);*/
   transform: scale(1.1);
 }
 
@@ -216,7 +216,7 @@ img {
 }
 
 .btn:hover {
-  -webkit-transform: scale(0.98);
+  /*-webkit-transform: scale(0.98);*/
   transform: scale(0.98);
 }
 
@@ -517,7 +517,7 @@ html::-webkit-scrollbar-track {
 }
 
 .homePage .cardItem:hover {
-  -webkit-transform: scale(1.1);
+  /*-webkit-transform: scale(1.1);*/
   transform: scale(1.1);
 }
 
@@ -649,7 +649,7 @@ body {
   left: 0;
   position: fixed;
   top: 50%;
-  -webkit-transform: translateY(-50%);
+  /*-webkit-transform: translateY(-50%);*/
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }

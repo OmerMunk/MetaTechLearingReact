@@ -36,10 +36,10 @@ img {
   width: 100%;
 }
 
-.customLink {
-  color: rgb(35, 132, 250);
-  cursor: pointer;
-}
+//.customLink {
+//  color: rgb(35, 132, 250);
+//  cursor: pointer;
+//}
 
 .benBtn {
   background-color: transparent;
@@ -51,6 +51,7 @@ img {
   font-weight: bold;
   cursor: pointer;
   margin: 3px 3px;
+
   &:hover {
     background-color: rgb(57, 39, 252);
     transition: 0.3s ease-in-out;
@@ -90,60 +91,62 @@ img {
     transition: 0.3s ease-in-out;
     color: #fff;
   }
-}
 
-.benBlackBtn {
-  border: 1px solid rgb(0, 0, 0);
-  color: rgb(0, 0, 0);
 
-  &:hover {
-    background-color: rgb(0, 0, 0);
-    transition: 0.3s ease-in-out;
-    color: #fff;
+  .benBlackBtn {
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+
+    &:hover {
+      background-color: rgb(0, 0, 0);
+      transition: 0.3s ease-in-out;
+      color: #fff;
+    }
   }
-}
 
-.benOrangeBtn {
-  border: 1px solid orange;
-  color: orange;
+  .benOrangeBtn {
+    border: 1px solid orange;
+    color: orange;
 
-  &:hover {
-    background-color: orange;
-    transition: 0.3s ease-in-out;
-    color: #fff;
+    &:hover {
+      background-color: orange;
+      transition: 0.3s ease-in-out;
+      color: #fff;
+    }
   }
-}
 
-.benWhiteBtn {
-  border: 1px solid white;
-  color: white;
+  .benWhiteBtn {
+    border: 1px solid white;
+    color: white;
 
-  &:hover {
-    background-color: white;
-    transition: 0.3s ease-in-out;
-    color: black;
+    &:hover {
+      background-color: white;
+      transition: 0.3s ease-in-out;
+      color: black;
+    }
   }
-}
 
-.benLoginBtn {
-  background-color: rgb(252, 35, 227);
-  width: 200px;
-  color: rgb(255, 255, 255);
-  font-size: 22px;
-  border: 1px solid white;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 10px auto;
-  transition-duration: 0.2s;
-}
-.benLoginBtn:hover {
-  transform: scale(1.1);
-}
+  .benLoginBtn {
+    background-color: rgb(252, 35, 227);
+    width: 200px;
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    border: 1px solid white;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 10px auto;
+    transition-duration: 0.2s;
+  }
 
-.modalLink {
-  color: rgb(0, 136, 255);
-  cursor: pointer;
-  font-size: 18px;
-  margin: 5px;
+  .benLoginBtn:hover {
+    transform: scale(1.1);
+  }
+
+  .modalLink {
+    color: rgb(0, 136, 255);
+    cursor: pointer;
+    font-size: 18px;
+    margin: 5px;
+  }
 }

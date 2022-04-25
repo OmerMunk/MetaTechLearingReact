@@ -5,7 +5,6 @@ import SingleLesson from "../SingleLesson";
 import FilterModal from "./FilterModal";
 
 const LessonHistory = () => {
-    const [token, setToken] = useState(window.localStorage.getItem("token"));
     const [lessons, setLessons] = useState([]);
     const [filterType, setFilterType] = useState(null);
     const [filterDetails, setFilterDetails] = useState(null);
@@ -27,6 +26,8 @@ const LessonHistory = () => {
     };
 
     const getUserType = () => {
+        const token = window.localStorage.getItem("token");
+
         axios
             .get("/api/user/getusertype", {
                 headers: {Authorization: "Token " + token},
@@ -37,6 +38,8 @@ const LessonHistory = () => {
     };
 
     const getProfile = () => {
+        const token = window.localStorage.getItem("token");
+
         axios
             .get("/api/user/profile", {
                 headers: {Authorization: "Token " + token},
@@ -47,6 +50,8 @@ const LessonHistory = () => {
     };
 
     const getLessons = () => {
+        const token = window.localStorage.getItem("token");
+
         axios
             .get("/api/lessons", {
                 headers: {Authorization: "Token " + token},
